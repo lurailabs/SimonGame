@@ -1,0 +1,272 @@
+:root {
+    font-size:          62.5%;
+}
+
+body {
+    margin:             0;
+    padding:            0;
+    background:   #34953c url('http://us.123rf.com/450wm/almir1968/almir19681105/almir1968110500029/9593417-grass-background.jpg');
+}
+
+#simon {
+    position:               relative;
+    width:                  500px;
+    height:                 500px;
+    margin:                 10% auto 0;
+    background-color:       black;
+    border:                 30px solid black;
+    border-radius:          50%;
+    overflow:               hidden;
+    transform:              rotate(-5deg);
+    box-shadow:             15px 15px 30px rgba(0, 0, 0, 0.64);
+}
+
+.light { /* all four colour big buttons */
+    position:               absolute;
+    width:                  235px;
+    height:                 235px;
+    cursor:                 pointer;
+    border-radius:          5%;
+}
+
+#green {
+    top:                    0;
+    left:                   0;
+    background-color:       green;
+}
+
+#green.clicked {
+    background-color:       #00d200;
+}
+
+#red {
+    top:                    0;
+    right:                  0;
+    background-color:       #b90000;
+}
+
+#red.clicked {
+    background-color:       #fa0000;
+}
+
+#yellow {
+    bottom:                 0;
+    left:                   0;
+    background-color:       #b2b200;
+}
+
+#yellow.clicked {
+    background-color:       #ffff00;
+}
+
+#blue {
+    bottom:                 0;
+    right:                  0;
+    background-color:       #0000ba;
+}
+
+#blue.clicked {
+    background-color: #6295ff;
+}
+
+#inner-circle {
+    font-family:            'Oswald', sans-serif;
+    position:               relative;
+    top:                    22%;
+    left:                   22%;
+    width:                  50%;
+    height:                 50%;
+    border-radius:          50%;
+    background-color:       #f1f1f1;
+    border:                 15px double black;
+    overflow:               hidden;
+    text-align:             center;
+    font-size:              1.3rem;
+}
+
+#brand {
+    position:               absolute;
+    top:                    0;
+    left:                   0;
+    width:                  100%;
+    height:                 40%;
+    background-color:       black;
+    border-bottom:          1px outset black;
+}
+
+#brand > h1 {
+    font-family:            'Sarpanch', sans-serif;
+    font-size:              4.7rem;
+    text-align:             center;
+    font-weight:            normal;
+    color:                  #f1f1f1;
+    transform:              scaleY(1.5);
+}
+
+#brand>h1::after {
+    content:                '®';
+    font-size:              11px;
+    position:               relative;
+    top:                    -15px;
+
+}
+
+#brand::after {
+    content:                '';
+    width:                  100%;
+    position:               absolute;
+    bottom:                 -5px;
+    left:                   0;
+    border-bottom:          2px solid black;
+}
+
+#controls-row {
+    position:               absolute;
+    top:                    118px;
+    width:                  100%;
+    height:                 auto;
+}
+
+
+#count {
+    margin-right:           20px;
+    display:                inline-block;
+    position:               relative;
+    width:                  60px;
+    height:                 40px;
+    border-radius:          15%;
+    background-color:       black;
+    box-shadow:             1px 3px 2px rgba(97, 97, 97, 0.89);
+}
+
+#count > p {
+    font-family: 'Share Tech Mono', monospace;
+    color:                  red;
+    font-size:              3.3rem;
+    position:               absolute;
+    top:                    -29px;
+    left:                   12px;
+    opacity:                0.7;
+}
+
+#count::after {
+    content:                'COUNT';
+    position:               absolute;
+    bottom:                 -23px;
+    left:                   13px;
+}
+
+.numbers {
+    font-family:            'VT323', monospace;
+}
+
+#start {
+    margin-right:           20px;
+    display:                inline-block;
+    position:               relative;
+    width:                  18px;
+    height:                 18px;
+    border-radius:          50%;
+    background-color:       #b90000;
+    border:                 3px solid black;
+    cursor:                 pointer;
+    box-shadow:             1px 3px 2px rgba(97, 97, 97, 0.89);
+}
+
+#start::after {
+    content:                'START';
+    position:               absolute;
+    bottom:                 -26px;
+    left:                   -6px;
+}
+
+#start.on {
+    background-color:       #fa0000;
+}
+
+#start:active {
+    box-shadow:             none;
+}
+
+#strict {
+    display:                inline-block;
+    position:               relative;
+    width:                  18px;
+    height:                 18px;
+    border-radius:          50%;
+    background-color:       #b2b200;;
+    border:                 3px solid black;
+    cursor:                 pointer;
+    box-shadow:             1px 3px 2px rgba(97, 97, 97, 0.89);
+}
+
+#strict::before {
+    content:                '';
+    position:               absolute;
+    top:                    -19px;
+    left:                   3px;
+    width:                  9px;
+    height:                 9px;
+    background-color:       black;
+    border:                 solid 2px black;
+    border-radius:          50%;
+}
+
+#strict::after {
+    content:                'STRICT';
+    position:               absolute;
+    bottom:                 -26px;
+    left:                   -7px;
+}
+
+#strict.on::before {
+    background-color:       #fa0000;
+}
+
+#strict:active {
+    box-shadow:             none;
+}
+
+#switch {
+    position:               absolute;
+    bottom:                 30px;
+    left:                   98px;
+    width:                  50px;
+    height:                 25px;
+    background-color:       black;
+    border-radius:          10%;
+    cursor:                 pointer;
+    font-size:              14px;
+    font-family:            'Oswald', sans-serif;
+    box-shadow:             1px 3px 2px rgba(97, 97, 97, 0.89);
+}
+
+#switch::before {
+    content:                'OFF';
+    position:               absolute;
+    top:                    2px;
+    left:                   -21px;
+}
+
+#switch::after {
+    content:                'ON';
+    position:               absolute;
+    top:                    2px;
+    left:                   54px;
+
+}
+
+#switch-inner {
+    position:               absolute;
+    top:                    2px;
+    left:                   3px;
+    width:                  23px;
+    height:                 21px;
+    border-radius:          10%;
+    background-color:       deepskyblue;
+}
+
+#switch-inner.on {
+    top:                    2px;
+    left:                   23px;
+}

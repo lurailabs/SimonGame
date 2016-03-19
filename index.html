@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simon Game</title>
+    <link href='https://fonts.googleapis.com/css?family=Sarpanch:900&text=simon' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <!--<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="simon">
+    <div id="lights">
+        <div id="green"  class="light">
+            <audio id="greenSound">
+                <source src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div id="red"    class="light">
+            <audio id="redSound">
+                <source src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div id="blue"   class="light">
+            <audio id="blueSound">
+                <source src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div id="yellow" class="light">
+            <audio id="yellowSound">
+                <source src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+    <div id="inner-circle">
+        <div id="brand"><h1>simon</h1></div>
+        <div id="controls-row">
+            <div id="count"><p id="count-number"></p></div>
+            <div id="start"></div>
+            <div id="strict"></div>
+        </div>
+        <div id="switch"><div id="switch-inner"></div></div>
+    </div>
+</div>
+
+
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+<script src="js/Game.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
