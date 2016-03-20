@@ -8,10 +8,6 @@ body {
     background:   #34953c url('http://us.123rf.com/450wm/almir1968/almir19681105/almir1968110500029/9593417-grass-background.jpg');
 }
 
-#failSound {
-    display: none;
-}
-
 #simon {
     position:               relative;
     width:                  500px;

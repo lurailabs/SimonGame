@@ -80,6 +80,8 @@ Game = function() {
      */
     var manageEvent = function(colorClicked) {
 
+        if (!simonOn) return;
+
         if (turn === 'pc') {
             if (eventsStack.length > 0) {
                 $colors[eventsStack.shift()].click();

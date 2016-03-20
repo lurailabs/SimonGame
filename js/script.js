@@ -19,11 +19,11 @@ var $colors = {
 };
 
 var $sounds = {
-    greenSound:     document.getElementById('greenSound'),
-    redSound:       document.getElementById('redSound'),
-    blueSound:      document.getElementById('blueSound'),
-    yellowSound:    document.getElementById('yellowSound'),
-    failSound:      document.getElementById('failSound')
+    greenSound:     new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
+    redSound:       new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
+    blueSound:      new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
+    yellowSound:    new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'),
+    failSound:      new Audio('http://soundbible.com/mp3/Computer%20Error-SoundBible.com-1655839472.mp3')
 };
 
 var game = new Game();
