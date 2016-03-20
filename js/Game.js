@@ -45,6 +45,13 @@ Game = function() {
     };
 
     /*
+     *  Getter for strict.
+     */
+    var isStrict = function() {
+        return strict;
+    };
+
+    /*
      *  Setter for strict.
      */
     var setStrict = function(boolean) {
@@ -53,8 +60,8 @@ Game = function() {
 
 
     var resetAll = function() {
+
         clearTimeout(humanTimerId);
-        strict              = false;
         count               = '--';
         turn                = null;
         pcColorsStack       = [];
@@ -101,12 +108,15 @@ Game = function() {
         humanTimerId = null;
 
         setTimeout(function() {
-            turn = 'pc';
-            if (!strict) {
+            if(!strict) {
+                turn = 'pc';
                 eventsStack = pcColorsStack.slice();
                 checkStack  = pcColorsStack.slice();
                 manageEvent();
+            } else {
+                resetAll();
             }
+
         }, 2000);
 
     };
@@ -165,6 +175,7 @@ Game = function() {
     return {
         isSimonOn:          isSimonOn,
         setSimonOn:         setSimonOn,
+        isStrict:           isStrict,
         setStrict:          setStrict,
         getTurn:            getTurn,
         start:              start,

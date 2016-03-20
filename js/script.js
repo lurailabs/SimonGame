@@ -91,12 +91,13 @@ $elements.start.onclick = function() {
 $elements.strict.onclick = function() {
 
     if (game.isSimonOn()) {
-        if (!$elements.strict.classList.contains('on')) {
-            game.setStrict(true);
-            $elements.strict.classList.add('on');
-        } else {
+        if (game.isStrict()) {
             game.setStrict(false);
             $elements.strict.classList.remove('on');
+
+        } else {
+            game.setStrict(true);
+            $elements.strict.classList.add('on');
         }
     }
 };
