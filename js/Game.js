@@ -6,13 +6,12 @@ Game = function() {
     var simonOn             = false;    // switch ON or OFF
     var strict              = false;    // strict mode ON or OFF
     var colors              = ['green', 'red', 'blue', 'yellow'];
-    var turn                = 'pc';
+    var turn                = null;
     var pcColorsStack       = [];       // Colors pressed by PC
     var eventsStack         = [];       // PC colors that still have to beep
     var checkStack          = [];       // helper array for checking human presses
     var count               = 0;
     var humanTimerId;                   // timer to control that human acts on time
-    var festivalMode        = false;    // activate round of beeps when turn on, win or loose
 
 
     /*
@@ -41,9 +40,8 @@ Game = function() {
      *  Setter for simonOn.
      */
     var setSimonOn = function(boolean) {
+        resetAll();
         simonOn = boolean;
-        count = '--';
-        if (boolean) triggerFestivalMode();
     };
 
     /*
@@ -53,34 +51,25 @@ Game = function() {
         strict = boolean;
     };
 
-    var getFestivalMode = function() {
-        return festivalMode;
-    };
 
+    var resetAll = function() {
+        clearTimeout(humanTimerId);
+        strict              = false;
+        count               = '--';
+        turn                = null;
+        pcColorsStack       = [];
+        eventsStack         = [];
+        checkStack          = [];
+        humanTimerId        = null;
+    };
 
     /*
      *  Starts a new game. Resets variables and gives turn to PC.
      */
     var start = function() {
-
-        festivalMode        = false;
-        strict              = false;
-        count               = 0;
-        turn                = 'pc';
-        pcColorsStack       = [];
-        eventsStack         = [];
-        checkStack          = [];
+        resetAll();
+        count = 0;
         pcTurn();
-    };
-
-    /**
-     * Festival mode is a round of colors and beeps when starting Simon, winning or loosing.
-     */
-    var triggerFestivalMode = function() {
-        eventsStack = ['green', 'red', 'blue', 'yellow', 'green', 'red', 'blue'];
-        festivalMode = true;
-        manageEvent();
-        //$elements.lights.click();
     };
 
 
@@ -91,32 +80,27 @@ Game = function() {
      */
     var manageEvent = function(colorClicked) {
 
-        if (festivalMode) {
-            if (eventsStack.length > 0) {
-                $colors[eventsStack.shift()].click();
-            } festivalMode = 'false';
-        }
-
-        else if (turn === 'pc') {
+        if (turn === 'pc') {
             if (eventsStack.length > 0) {
                 $colors[eventsStack.shift()].click();
             } else humanTurn();
         } else {
-            //humanColorsStack.push(colorClicked);
             humanTurn(colorClicked);
         }
     };
 
 
     var humanError = function() {
+
+        turn = null;
+        $sounds.failSound.play();
         $elements.count.innerHTML = '!!';
         clearTimeout(humanTimerId);
-        setTimeout(function() {
-            if (strict) {
-                console.log('Strict mode : starting again');
+        humanTimerId = null;
 
-            } else {
-                turn = 'pc';
+        setTimeout(function() {
+            turn = 'pc';
+            if (!strict) {
                 eventsStack = pcColorsStack.slice();
                 checkStack  = pcColorsStack.slice();
                 manageEvent();
@@ -143,14 +127,12 @@ Game = function() {
 
 
     var humanWins = function() {
-        triggerFestivalMode();
-        console.log('HUMAN WINS');
-        start();
+        resetAll();
+        $elements.count.innerHTML = '♥♥';
     };
 
     var startTimeout = function() {
         return setTimeout(function() {
-            console.log('human timeout');
             humanError();
         }, 3000);
     };
@@ -170,8 +152,6 @@ Game = function() {
             if (checkStack.length === 0) pcTurn();
             else humanTimerId = startTimeout();
         } else {
-            clearTimeout(humanTimerId);
-            console.log('HUMAN ERROR');
             humanError();
         }
     };
@@ -184,7 +164,6 @@ Game = function() {
         isSimonOn:          isSimonOn,
         setSimonOn:         setSimonOn,
         setStrict:          setStrict,
-        getFestivalMode:    getFestivalMode,
         getTurn:            getTurn,
         start:              start,
         getCount:           getCount,

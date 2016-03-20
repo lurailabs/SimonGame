@@ -22,7 +22,8 @@ var $sounds = {
     greenSound:     document.getElementById('greenSound'),
     redSound:       document.getElementById('redSound'),
     blueSound:      document.getElementById('blueSound'),
-    yellowSound:    document.getElementById('yellowSound')
+    yellowSound:    document.getElementById('yellowSound'),
+    failSound:      document.getElementById('failSound')
 };
 
 var game = new Game();
@@ -39,13 +40,13 @@ $elements.switch.onclick = function() {
     if (!$elements.switchInner.classList.contains('on')) {
         $elements.count.innerHTML = '--';
         $elements.switchInner.classList.add('on');
-        game.setSimonOn('true');
+        game.setSimonOn(true);
     } else {
-        $elements.count.innerHTML = '';
         game.setSimonOn(false);
         $elements.start.classList.remove('on');
         $elements.strict.classList.remove('on');
         $elements.switchInner.classList.remove('on');
+        $elements.count.innerHTML = '';
     }
 };
 
@@ -60,7 +61,6 @@ $elements.lights.onclick = function(e) {
         // don't act on human clicks  when it's PC turn
         if(game.getTurn() === 'pc' && e.isTrusted) return;
 
-        var timeout = game.getFestivalMode() ? 160 : 750;
         var $target = e.target;
         $target.classList.add('clicked');
         $elements.count.innerHTML = game.getCount();
@@ -68,7 +68,7 @@ $elements.lights.onclick = function(e) {
         setTimeout(function() {
             $target.classList.remove('clicked');
             game.manageEvent($target.id);
-        }, timeout);        // timer to make beep longer.
+        }, 750);        // enough time for sound.
     }
 };
 
