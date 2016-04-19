@@ -1,4 +1,4 @@
-# SimonGame
+# Simon Game
 
 Simon game clon made in JavaScript.
 
