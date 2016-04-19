@@ -19,11 +19,11 @@ var $colors = {
 };
 
 var $sounds = {
-    greenSound:     new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
-    redSound:       new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
-    blueSound:      new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3'),
-    yellowSound:    new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'),
-    failSound:      new Audio('http://soundbible.com/mp3/Computer%20Error-SoundBible.com-1655839472.mp3')
+    greenSound:     new Audio('sounds/simonSound1.mp3'),
+    redSound:       new Audio('sounds/simonSound2.mp3'),
+    blueSound:      new Audio('sounds/simonSound3.mp3'),
+    yellowSound:    new Audio('sounds/simonSound4.mp3'),
+    failSound:      new Audio('sounds/fail.mp3')
 };
 
 var game = new Game();
@@ -58,7 +58,7 @@ $elements.lights.onclick = function(e) {
 
     if (game.isSimonOn()) {
 
-        // don't act on human clicks  when it's PC turn
+        // don't respond to human clicks when it's PC turn
         if(game.getTurn() === 'pc' && e.isTrusted) return;
 
         var $target = e.target;
