@@ -19,11 +19,11 @@ var $colors = {
 };
 
 var $sounds = {
-    greenSound:     new Audio('sounds/simonSound1.mp3'),
-    redSound:       new Audio('sounds/simonSound2.mp3'),
-    blueSound:      new Audio('sounds/simonSound3.mp3'),
-    yellowSound:    new Audio('sounds/simonSound4.mp3'),
-    failSound:      new Audio('sounds/fail.mp3')
+    greenSound:     new Audio('assets/sounds/simonSound1.mp3'),
+    redSound:       new Audio('assets/sounds/simonSound2.mp3'),
+    blueSound:      new Audio('assets/sounds/simonSound3.mp3'),
+    yellowSound:    new Audio('assets/sounds/simonSound4.mp3'),
+    failSound:      new Audio('assets/sounds/fail.mp3')
 };
 
 var game = new Game();
